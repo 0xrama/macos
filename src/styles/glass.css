@@ -1,0 +1,81 @@
+/* ===================== Liquid Glass =====================
+   Real refraction layer + fallbacks. The tiered materials
+   (glass-thin/regular/thick/clear) live in unocss.config.ts;
+   this file adds the SVG displacement "lensing" and the
+   accessibility / performance fallbacks. */
+
+/* The global <svg> filter host is visually hidden but must remain
+   rendered so the filter graph is available to backdrop-filter. */
+.lg-filter-host {
+  position: fixed;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Refraction surface: apply on top of a glass-* material to bend the
+   content behind it. Composed as its own layer so it can be disabled
+   without touching the material's blur/tint. */
+.lg-refract {
+  -webkit-backdrop-filter: blur(2px) url(#liquid-glass) saturate(180%);
+  backdrop-filter: blur(2px) url(#liquid-glass) saturate(180%);
+}
+
+/* Bright moving sheen across the top edge of large glass panels */
+.lg-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.lg-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.05) 22%,
+    rgba(255, 255, 255, 0) 45%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .lg-sheen::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 22%,
+    rgba(255, 255, 255, 0) 45%
+  );
+}
+
+/* ---- Fallback: disable heavy displacement ----
+   `.lg-off` is set on <html> by useGlassSupport when the device is
+   low-powered, has many windows open, or the user prefers reduced
+   transparency. Falls back to a clean blur. */
+.lg-off .lg-refract {
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(180%);
+}
+
+/* ---- Accessibility: reduced transparency ----
+   Users who ask for reduced transparency get opaque surfaces. */
+@media (prefers-reduced-transparency: reduce) {
+  .glass-thin,
+  .glass-regular,
+  .glass-thick,
+  .glass-clear {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .lg-refract {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .lg-sheen::before {
+    display: none;
+  }
+}

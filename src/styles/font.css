@@ -1,0 +1,33 @@
+/* System UI stack: real SF Pro on Apple hardware via -apple-system;
+   Inter (a close SF Pro analogue) as the cross-platform fallback so the
+   UI looks like macOS on Windows/Linux/Android too. */
+:root {
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "InterVariable", "Inter Variable", "Helvetica Neue",
+    "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "SFMono-Regular", ui-monospace, Menlo, Monaco,
+    "Cascadia Mono", "Roboto Mono", monospace;
+}
+
+.font-avenir {
+  font-family: var(--font-system);
+}
+
+.font-terminal {
+  font-family: var(--font-mono);
+}
+
+body:not(pre) {
+  font-family: var(--font-system);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  font-feature-settings: "kern" 1, "ss01" 1, "cv01" 1;
+  letter-spacing: -0.011em; /* SF Pro tracking approximation */
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

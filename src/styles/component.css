@@ -1,0 +1,643 @@
+/* --------- Login --------- */
+
+.login input::placeholder {
+  @apply text-white;
+}
+
+/* --------- spotlight --------- */
+
+.spotlight {
+  @apply fixed z-20 h-max top-1/4 -mt-16 w-165 -ml-82.5 left-1/2 rounded-glass-lg lg-refract lg-sheen;
+  background: rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.55),
+    0 4px 24px rgba(0, 0, 0, 0.1),
+    0 24px 60px rgba(0, 0, 0, 0.14);
+}
+
+.dark .spotlight {
+  background: rgba(30, 30, 35, 0.55);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.12),
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.spotlight input::placeholder {
+  @apply text-c-black/40;
+}
+
+.spotlight .spotlight-type {
+  @apply relative hstack pl-2.5 py-2 text-xs leading-none text-c-500 font-medium;
+}
+
+@media (max-width: 639px) {
+  .spotlight {
+    @apply w-full ml-0 left-0;
+  }
+}
+
+/* --------- app window --------- */
+
+.window-bound {
+  width: 300%;
+  height: 200%;
+  left: -100%;
+}
+
+/* Title bar is 28px in macOS 26 Tahoe */
+.innner-window {
+  height: calc(100% - 1.75rem);
+}
+
+.safari-content {
+  height: calc(100% - 2rem);
+}
+
+/* Traffic lights container */
+.traffic-lights .icon {
+  @apply opacity-0 transition-opacity duration-150;
+}
+
+.traffic-lights:hover .icon {
+  @apply opacity-100;
+}
+
+/* Traffic light buttons — match macOS sizing exactly.
+   Active: colored. Inactive: gray (#DCDCDC). */
+.window-btn {
+  @apply size-3 rounded-full flex items-center justify-center;
+  @apply transition-all duration-150;
+  box-shadow:
+    inset 0 0 0 0.5px rgba(0, 0, 0, 0.18),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.window-btn:hover {
+  filter: brightness(1.08) saturate(1.1);
+  transform: scale(1.05);
+}
+
+.window-btn:active {
+  filter: brightness(0.88);
+  transform: scale(0.95);
+}
+
+/* Inactive window: traffic lights lose color, title dims */
+.rnd-inactive .window-btn.bg-red-500,
+.rnd-inactive .window-btn.bg-red-400 {
+  @apply bg-gray-300 dark:bg-gray-600;
+}
+
+.rnd-inactive .window-btn.bg-yellow-500,
+.rnd-inactive .window-btn.bg-yellow-400 {
+  @apply bg-gray-300 dark:bg-gray-600;
+}
+
+.rnd-inactive .window-btn.bg-green-500,
+.rnd-inactive .window-btn.bg-green-400 {
+  @apply bg-gray-300 dark:bg-gray-600;
+}
+
+.rnd-inactive .window-title {
+  @apply opacity-40;
+}
+
+/* Window shadow — real macOS values.
+   Large, soft, clearly visible drop shadow. */
+.window-shadow {
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.14),
+    0 22px 70px rgba(0, 0, 0, 0.32);
+}
+
+.dark .window-shadow {
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 22px 70px rgba(0, 0, 0, 0.6);
+}
+
+/* Window title bar — 28px height, tight vibrancy */
+.window-bar {
+  height: 1.75rem; /* 28px */
+  background: rgba(236, 236, 238, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.7);
+}
+
+.dark .window-bar {
+  background: rgba(38, 38, 42, 0.88);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* --------- dock --------- */
+
+.dock ul {
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -0.5px 0 rgba(0, 0, 0, 0.03),
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 8px 40px rgba(0, 0, 0, 0.04);
+}
+
+.dark .dock ul {
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -0.5px 0 rgba(0, 0, 0, 0.1),
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dock li .tooltip {
+  @apply hidden;
+  top: calc(-100% - 12px);
+}
+
+.dock li:hover .tooltip {
+  @apply block;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  animation: tooltip-fade-in 0.15s ease-out;
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dock indicator dot for open apps */
+.dock-indicator {
+  @apply transition-all duration-200;
+}
+
+.dock-indicator.active {
+  box-shadow: 0 0 3px currentColor;
+}
+
+/* --------- slider --------- */
+
+.slider .rangeslider {
+  @apply bg-c-300 w-full h-7 shadow-none m-0 rounded-r-full border-t border-r border-b border-transparent;
+}
+
+.slider .rangeslider .rangeslider__fill {
+  @apply bg-c-100 shadow-none rounded-none;
+}
+
+.slider .rangeslider .rangeslider__handle {
+  @apply border border-c-300 outline-none size-7 text-white bg-white;
+  box-shadow: -3px 0px 8px 0px rgba(17, 17, 17, 0.15);
+}
+
+.slider .rangeslider .rangeslider__handle::after {
+  @apply hidden;
+}
+
+
+/*
+  Credits: W3 Schools: https://www.w3schools.com/howto/howto_css_switch.asp
+*/
+
+/* The switch - the box around the slider */
+.switch-toggle {
+  @apply relative inline-block h-5.5 w-9.5;
+}
+
+/* Hide default HTML checkbox */
+.switch-toggle input {
+  @apply size-0 opacity-0;
+}
+
+/* The slider */
+.switch-toggle .slider-toggle {
+  @apply absolute rounded-full bg-gray-400/50 inset-0 cursor-pointer duration-300;
+}
+
+.switch-toggle .slider-toggle:before {
+  @apply content-[""] absolute rounded-full bg-white bottom-0.5 left-0.5 size-4.5 duration-300;
+}
+
+.switch-toggle input:checked + .slider-toggle {
+  @apply bg-blue-500;
+}
+
+.switch-toggle input:checked + .slider-toggle:before {
+  @apply translate-x-4;
+}
+
+.switch-toggle input:focus + .slider-toggle {
+  box-shadow: 0 0 1px #3b82f6;
+}
+
+/* ========= VIEW TRANSITIONS ========= */
+
+/* Window open transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(window-open) {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :root::view-transition-old(window-open) {
+    animation: window-open-old 300ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(window-open) {
+    animation: window-open-new 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@keyframes window-open-old {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes window-open-new {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Window close transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(window-close) {
+    animation-duration: 250ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-old(window-close) {
+    animation: window-close-old 250ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(window-close) {
+    animation: window-close-new 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes window-close-old {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(6px);
+  }
+}
+
+@keyframes window-close-new {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Window minimize transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(window-minimize) {
+    animation-duration: 350ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-old(window-minimize) {
+    animation: window-minimize-old 350ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(window-minimize) {
+    animation: window-minimize-new 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes window-minimize-old {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.15) translateY(80px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes window-minimize-new {
+  from {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Window restore transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(window-restore) {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :root::view-transition-old(window-restore) {
+    animation: window-restore-old 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :root::view-transition-new(window-restore) {
+    animation: window-restore-new 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@keyframes window-restore-old {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes window-restore-new {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(40px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Launchpad open transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(launchpad-open) {
+    animation-duration: 350ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :root::view-transition-old(launchpad-open) {
+    animation: launchpad-open-old 350ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(launchpad-open) {
+    animation: launchpad-open-new 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes launchpad-open-old {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes launchpad-open-new {
+  from {
+    opacity: 0;
+    transform: scale(1.15);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Launchpad close transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(launchpad-close) {
+    animation-duration: 250ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-old(launchpad-close) {
+    animation: launchpad-close-old 250ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(launchpad-close) {
+    animation: launchpad-close-new 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes launchpad-close-old {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(6px);
+  }
+}
+
+@keyframes launchpad-close-new {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Spotlight open transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(spotlight-open) {
+    animation-duration: 200ms;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :root::view-transition-old(spotlight-open) {
+    animation: spotlight-open-old 200ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(spotlight-open) {
+    animation: spotlight-open-new 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@keyframes spotlight-open-old {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+@keyframes spotlight-open-new {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(-12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Spotlight close transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(spotlight-close) {
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-old(spotlight-close) {
+    animation: spotlight-close-old 150ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(spotlight-close) {
+    animation: spotlight-close-new 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes spotlight-close-old {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(-8px);
+    filter: blur(3px);
+  }
+}
+
+@keyframes spotlight-close-new {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Notification enter transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(notification-enter) {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :root::view-transition-old(notification-enter) {
+    animation: notification-enter-old 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :root::view-transition-new(notification-enter) {
+    animation: notification-enter-new 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@keyframes notification-enter-old {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateX(-4px);
+  }
+}
+
+@keyframes notification-enter-new {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+/* Notification exit transition */
+@media (prefers-reduced-motion: no-preference) {
+  :root::view-transition-group(notification-exit) {
+    animation-duration: 250ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-old(notification-exit) {
+    animation: notification-exit-old 250ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  :root::view-transition-new(notification-exit) {
+    animation: notification-exit-new 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes notification-exit-old {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(60px) scale(0.95);
+    filter: blur(3px);
+  }
+}
+
+@keyframes notification-exit-new {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

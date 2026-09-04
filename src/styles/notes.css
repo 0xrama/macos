@@ -1,0 +1,109 @@
+.notes.prose {
+  @apply text-[#000000] dark:text-white;
+}
+
+.notes.prose h1,
+.notes.prose h2,
+.notes.prose h3,
+.notes.prose h4 {
+  @apply font-medium text-[#000000] dark:text-white;
+  @apply mt-6 mb-4;
+}
+
+.notes.prose h1 {
+  @apply text-2xl font-bold;
+}
+
+.notes.prose h2 {
+  @apply text-xl font-semibold;
+}
+
+.notes.prose h3 {
+  @apply text-lg font-medium;
+}
+
+.notes.prose h4 {
+  @apply text-base font-medium;
+}
+
+.notes.prose p {
+  @apply my-4 text-[#000000] dark:text-white leading-relaxed;
+}
+
+.notes.prose a {
+  @apply text-[#007AFF] dark:text-[#0A84FF] no-underline hover:underline;
+}
+
+.notes.prose ul,
+.notes.prose ol {
+  @apply my-4 pl-8 text-[#000000] dark:text-white;
+}
+
+.notes.prose ul {
+  @apply list-disc;
+}
+
+.notes.prose ol {
+  @apply list-decimal;
+}
+
+.notes.prose li {
+  @apply my-1;
+}
+
+.notes.prose code {
+  @apply text-sm bg-[#f6f6f6] dark:bg-[#323232] rounded px-1.5 py-0.5 text-[#000000] dark:text-white font-mono;
+}
+
+.notes.prose pre {
+  @apply my-4 p-4 bg-[#f6f6f6] dark:bg-[#323232] rounded overflow-x-auto;
+}
+
+.notes.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.notes.prose blockquote {
+  @apply border-l-4 border-[#dbdbdb] dark:border-[#323232] pl-4 my-4 italic text-[#666666] dark:text-[#999999];
+}
+
+.notes.prose blockquote p {
+  @apply my-2;
+}
+
+.notes.prose img {
+  @apply rounded-lg my-4 max-w-full;
+}
+
+.notes.prose table {
+  @apply w-full my-4 border-collapse;
+}
+
+.notes.prose table th,
+.notes.prose table td {
+  @apply border border-[#dbdbdb] dark:border-[#323232] px-4 py-2 text-[#000000] dark:text-white;
+}
+
+.notes.prose table th {
+  @apply bg-[#f6f6f6] dark:bg-[#323232] font-medium;
+}
+
+.notes.prose hr {
+  @apply my-8 border-t border-[#dbdbdb] dark:border-[#323232];
+}
+
+.notes.prose strong {
+  @apply font-bold text-[#000000] dark:text-white;
+}
+
+.notes.prose em {
+  @apply italic;
+}
+
+/* Ensure nested lists are styled properly */
+.notes.prose ul ul,
+.notes.prose ol ol,
+.notes.prose ul ol,
+.notes.prose ol ul {
+  @apply my-1 ml-4;
+} 

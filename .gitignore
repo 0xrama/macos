@@ -1,0 +1,7 @@
+node_modules
+bun.lock
+pnpm-lock.yaml
+*.local
+dist
+
+.DS_Store
